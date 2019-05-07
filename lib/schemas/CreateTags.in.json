@@ -1,0 +1,84 @@
+{
+    "type": "object",
+    "properties": {
+        "FileSystemId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "<p/>",
+            "example": {
+                "FileSystemId": "fs-01234567",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "MyFileSystem"
+                    }
+                ]
+            },
+            "properties": {
+                "Tags": {
+                    "description": "An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value pair. ",
+                    "items": {
+                        "description": "A tag is a key-value pair. Allowed characters are letters, white space, and numbers that can be represented in UTF-8, and the following characters:<code> + - = . _ : /</code> ",
+                        "properties": {
+                            "Key": {
+                                "description": "The tag key (String). The key can't start with <code>aws:</code>.",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The value of the tag key.",
+                                "maxLength": 256,
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Key",
+                            "Value"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Tags"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "<p/>",
+            "example": {
+                "FileSystemId": "fs-01234567",
+                "SubnetId": "subnet-1234abcd"
+            },
+            "properties": {
+                "FileSystemId": {
+                    "description": "The ID of the file system for which to create the mount target.",
+                    "type": "string"
+                },
+                "IpAddress": {
+                    "description": "Valid IPv4 address within the address range of the specified subnet.",
+                    "type": "string"
+                },
+                "SecurityGroups": {
+                    "description": "Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be for the same VPC as subnet specified.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 5,
+                    "type": "array"
+                },
+                "SubnetId": {
+                    "description": "The ID of the subnet to add the mount target in.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "FileSystemId",
+                "SubnetId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

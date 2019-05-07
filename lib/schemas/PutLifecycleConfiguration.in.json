@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "FileSystemId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "FileSystemId": "fs-01234567",
+                "LifecyclePolicies": [
+                    {
+                        "TransitionToIA": "AFTER_30_DAYS"
+                    }
+                ]
+            },
+            "properties": {
+                "LifecyclePolicies": {
+                    "description": "An array of <code>LifecyclePolicy</code> objects that define the file system's <code>LifecycleConfiguration</code> object. A <code>LifecycleConfiguration</code> object tells lifecycle management when to transition files from the Standard storage class to the Infrequent Access storage class.",
+                    "items": {
+                        "description": "Describes a policy used by EFS lifecycle management to transition files to the Infrequent Access (IA) storage class.",
+                        "properties": {
+                            "TransitionToIA": {
+                                "description": "<p>A value that indicates how long it takes to transition files to the IA storage class. Currently, the only valid value is <code>AFTER_30_DAYS</code>.</p> <p> <code>AFTER_30_DAYS</code> indicates files that have not been read from or written to for 30 days are transitioned from the Standard storage class to the IA storage class. Metadata operations such as listing the contents of a directory don't count as a file access event.</p>",
+                                "enum": [
+                                    "AFTER_30_DAYS"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "LifecyclePolicies"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
